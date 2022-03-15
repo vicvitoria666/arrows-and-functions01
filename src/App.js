@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  
+state = {
+  frases:[
+    "Nada é em vão, se não é benção é lição.",
+    "A vida não é triste, tem horas tristes.",
+    "Faça o que puder, com o que tem, onde estiver. O único passo entre o sonho e a realidade é a atitude.",
+  ],
+  apareceTela: "",
+};
+ 
+ motivationPhrases = () => {
+   this.setState({
+    apareceTela: this.state.frases[0]})
+ }
+
+motivationPhrases01 = () => {
+  this.setState({
+    apareceTela: this.state.frases[1]})
 }
 
-export default App;
+motivationPhrases02 = () => {
+  this.setState({
+    apareceTela: this.state.frases[2]})
+}
+
+ number = (x) => {
+   return x * 2;
+ } 
+
+  render(){
+    return(
+      <div>
+        <h2>Sente que precisa de um empurrãozinho?</h2>
+
+      <div>
+        <p> {this.state.apareceTela} </p>
+      </div>
+
+        <button onClick={this.motivationPhrases} >Sim!</button>
+        <button onClick={this.motivationPhrases01} > De novo! </button>
+        <button onClick={this.motivationPhrases02} > Esse também!</button>
+
+
+<p>O dobro de 10 é {this.number(10)} </p>
+
+      </div>
+    )
+  }
+} export default App;
